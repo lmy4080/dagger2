@@ -25,12 +25,12 @@ public class SessionManager {
     }
 
     public void authencateWithId(final LiveData<AuthResource<User>> source) {
-        if(cachedUser != null) {
+        if(cachedUser != null){
             cachedUser.setValue(AuthResource.loading((User)null));
             cachedUser.addSource(source, new Observer<AuthResource<User>>() {
                 @Override
-                public void onChanged(AuthResource<User> authResource) {
-                    cachedUser.setValue(authResource);
+                public void onChanged(AuthResource<User> userAuthResource) {
+                    cachedUser.setValue(userAuthResource);
                     cachedUser.removeSource(source);
                 }
             });

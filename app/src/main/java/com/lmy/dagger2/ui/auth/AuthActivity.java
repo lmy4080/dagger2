@@ -58,12 +58,12 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
         subscribeObservers();
     }
 
-    private void subscribeObservers() {
+    private void subscribeObservers(){
         viewModel.observeAuthState().observe(this, new Observer<AuthResource<User>>() {
             @Override
             public void onChanged(AuthResource<User> userAuthResource) {
-                if(userAuthResource != null) {
-                    switch (userAuthResource.status) {
+                if(userAuthResource != null){
+                    switch (userAuthResource.status){
 
                         case LOADING:{
                             showProgressBar(true);
@@ -79,8 +79,8 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
 
                         case ERROR:{
                             showProgressBar(false);
-                            Toast.makeText(AuthActivity.this, userAuthResource.message +
-                                    "\nDid you enter a number between 1 and 10?", Toast.LENGTH_LONG).show();
+                            Toast.makeText(AuthActivity.this, userAuthResource.message
+                                    + "\nDid you enter a number between 1 and 10?", Toast.LENGTH_SHORT).show();
                             break;
                         }
 
