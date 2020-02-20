@@ -12,15 +12,25 @@ import androidx.annotation.Nullable;
 
 import com.lmy.dagger2.BaseActivity;
 import com.lmy.dagger2.R;
+import com.lmy.dagger2.ui.main.profile.ProfileFragment;
 
 public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        testFragment();
+    }
+
+    private void testFragment() {
+        Log.d(TAG, "testFragment: called");
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_container, new ProfileFragment())
+                .commit();
     }
 
     @Override
@@ -40,8 +50,8 @@ public class MainActivity extends BaseActivity {
                 sessionManager.logOut();
                 return true;
             }
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
