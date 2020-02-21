@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.lmy.dagger2.BaseActivity;
 import com.lmy.dagger2.R;
+import com.lmy.dagger2.ui.main.posts.PostsFragment;
 import com.lmy.dagger2.ui.main.profile.ProfileFragment;
 
 public class MainActivity extends BaseActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends BaseActivity {
     private void testFragment() {
         Log.d(TAG, "testFragment: called");
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_container, new ProfileFragment())
+                .replace(R.id.main_container, new PostsFragment())
                 .commit();
     }
 

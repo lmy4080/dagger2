@@ -3,6 +3,7 @@ package com.lmy.dagger2.di;
 import com.lmy.dagger2.di.auth.AuthModule;
 import com.lmy.dagger2.di.auth.AuthViewModelsModule;
 import com.lmy.dagger2.di.main.MainFragmentBuildersModule;
+import com.lmy.dagger2.di.main.MainModule;
 import com.lmy.dagger2.di.main.MainViewModelsModule;
 import com.lmy.dagger2.ui.auth.AuthActivity;
 import com.lmy.dagger2.ui.main.MainActivity;
@@ -24,7 +25,8 @@ public abstract class ActivityBuildersModule {
     @ContributesAndroidInjector(
             modules = {
                     MainFragmentBuildersModule.class,
-                    MainViewModelsModule.class
+                    MainViewModelsModule.class,
+                    MainModule.class
             }
     )
     abstract MainActivity contributeMainActivity();
