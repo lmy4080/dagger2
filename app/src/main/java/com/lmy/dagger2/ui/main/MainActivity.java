@@ -1,7 +1,6 @@
 package com.lmy.dagger2.ui.main;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
